@@ -1,13 +1,25 @@
-import { faker } from '@faker-js/faker'
-import { describe, expect, it } from 'vitest'
+import type { DeepPartial } from './index'
 
-import { add } from '.'
+{
+  /*
+    DeepPartial
+  */
 
-describe('add', () => {
-  it('should add two numbers', () => {
-    const a = faker.number.int()
-    const b = faker.number.int()
+  interface User {
+    id: number
+    name: string
+    address: {
+      street: string
+      city: string
+    }
+  }
 
-    expect(add(a, b)).toBe(a + b)
-  })
-})
+  const deepPartialUser: DeepPartial<User> = {
+    name: 'Gabriel',
+    address: {
+      city: 'São Paulo',
+    },
+  }
+
+  console.log({ deepPartialUser })
+}

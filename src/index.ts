@@ -1,3 +1,3 @@
-export function add(a: number, b: number) {
-  return a + b
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 }
