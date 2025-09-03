@@ -1,5 +1,6 @@
 export * from './types/json-value'
+export * from './types/semver'
 
-export type DeepPartial<T> = {
-  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
-}
+export * from './utilities/deep-partial'
+export * from './utilities/nullable'
+export * from './utilities/undefinable'

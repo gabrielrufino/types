@@ -5,17 +5,15 @@ on:
   - push
   - workflow_dispatch
 
-permissions:
-  pull-requests: write
-
 jobs:
-  node-ci:
-    name: Node CI
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actalog/node-ci@v3
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.sha }}
-  cancel-in-progress: true
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build -- --noEmit
