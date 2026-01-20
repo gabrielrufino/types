@@ -13,8 +13,7 @@ const testId: Result = 'id'
 const testName: Result = 'name'
 const testIsActive: Result = 'isActive'
 
-// eslint-disable-next-line no-console
-console.log(testId, testName, testIsActive)
+void [testId, testName, testIsActive]
 
 // The following lines should cause TypeScript errors if uncommented
 // const testInvalid: Result = 'invalid' // Error: Type '"invalid"' is not assignable to type 'Result'.
